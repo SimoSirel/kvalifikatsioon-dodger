@@ -2,7 +2,7 @@ import pygame
 pygame.init()
 running=True
 
-size=width,height=320,240
+size=width,height=320,700
 screen = pygame.display.set_mode(size)
 
 while running:
