@@ -1,11 +1,17 @@
 __author__ = 'simo.sirel'
 
+#data for game from player
+obstacle_count=0
+while obstacle_count<5 or obstacle_count>100:
+    obstacle_count=int(input("how many obstacles you want?"))
+
+
 import pygame,classes,time
 
 #define initial variables and start game
 pygame.init()
 running=True
-size=width,height=700,500
+size=width,height=800,600
 screen = pygame.display.set_mode(size)
 
 #define used font
@@ -17,7 +23,7 @@ lives = 3
 debris = pygame.sprite.Group()
 start = time.time()
 lost = False
-for _ in range(15):
+for _ in range(int(obstacle_count)):
     asteroid=classes.obstacle()
     debris.add(asteroid)
 

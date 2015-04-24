@@ -19,9 +19,10 @@ class Ship(pygame.sprite.Sprite):
         self.speed=0
         self.reinit()
 
-
+    """
+    used to reinitialise ship location after game restarts
+    """
     def reinit(self):
-        #used to reinitialise ship location after game restarts
         self.rect.x = self.orig_rect_x
         self.rect.y = self.orig_rect_y
 
@@ -48,9 +49,10 @@ class obstacle(pygame.sprite.Sprite):
         self.image = pygame.image.load('icons/asteroid.png')
         self.rand_data_calc()
 
-
+    """
+    random based variables for obstacle class
+    """
     def rand_data_calc(self):
-        #random based variables for obstacle class
         self.rand_scale = (random.randint(30,100)//10)*10
         self.rand_speed = random.randint(3,6)
         self.rand_loc = random.randint(0,self.screen.get_size()[0])
@@ -58,8 +60,10 @@ class obstacle(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = self.rand_loc
 
+    """
+    updates obstacle location and if obstacle gets out of screen reinitializes its variables
+    """
     def update(self):
-        #updates obstacle location and if obstacle gets out of screen reinitializes its variables
         self.rect.y += self.rand_speed
         if self.rect.y >= self.screen.get_size()[1]:
             self.rand_data_calc()
